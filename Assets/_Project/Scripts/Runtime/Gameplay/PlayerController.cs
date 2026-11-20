@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     
     
     public AudioClip collectSound;
-    public AudioClip audioSource;
+    public AudioClip WinSound;
     public AudioSource audioSource;
     
     void Awake()
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("PickUp"))
         {
             score++;
-            audioSource.PlayOneshot(collectSound);
+            audioSource.PlayOneShot(collectSound);
 
             UpdateScoreUI();
             CheckWinCondition();
