@@ -15,8 +15,12 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI winText;
     public int targetScore = 4;
-
-
+    
+    
+    public AudioClip collectSound;
+    public AudioClip audioSource;
+    public AudioSource audioSource;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -58,6 +62,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("PickUp"))
         {
             score++;
+            audioSource.PlayOneshot(collectSound);
 
             UpdateScoreUI();
             CheckWinCondition();
